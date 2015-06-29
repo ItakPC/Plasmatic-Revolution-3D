@@ -1,0 +1,5 @@
+Assets/
+Temp/
+Library/
+*.suo
+*.db
