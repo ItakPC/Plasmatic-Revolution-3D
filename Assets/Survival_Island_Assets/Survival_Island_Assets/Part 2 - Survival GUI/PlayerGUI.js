@@ -1,8 +1,8 @@
 ﻿#pragma strict
 
-var size : Vector2 = new Vector2(240, 40);
+var size : Vector2 = new Vector2(64, 64);
 
-var healthPos : Vector2 = new Vector2(20, 20);
+var healthPos : Vector2 = new Vector2(20, 200);
 var healthBarDisplay : float = 1;
 var healthBarEmpty : Texture2D;
 var healthBarFull : Texture2D;
@@ -12,12 +12,12 @@ var hungerBarDisplay : float = 1;
 var hungerBarEmpty : Texture2D;
 var hungerBarFull : Texture2D;
 
-var thirstPos : Vector2 = new Vector2(20, 100);
+var thirstPos : Vector2 = new Vector2(20, 200);
 var thirstBarDisplay : float = 1;
 var thirstBarEmpty : Texture2D;
 var thirstBarFull : Texture2D;
 
-var staminaPos : Vector2 = new Vector2(20, 140);
+var staminaPos : Vector2 = new Vector2(20, 200);
 var staminaBarDisplay : float = 1;
 var staminaBarEmpty : Texture2D;
 var staminaBarFull : Texture2D;
