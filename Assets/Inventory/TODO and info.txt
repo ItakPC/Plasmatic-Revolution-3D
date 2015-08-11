@@ -1,0 +1,3 @@
+TODO: Inventory Size code has to be fixed.
+
+Info: Recomended item size is x = 44px, y = 44px
