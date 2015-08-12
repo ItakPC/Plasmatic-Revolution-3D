@@ -11,7 +11,7 @@ public class Inventory : MonoBehaviour {
 	public int slots;
 	public int rows, columns;
 	
-	public float slotPaddingLeft, slotPaddingTop;
+	public float slotPaddingLeft, slotPaddingTop, slotPaddingBetween;
 	
 	public float slotSize;
 	
@@ -30,8 +30,8 @@ public class Inventory : MonoBehaviour {
 	private void CreateLayOut () {
 		allSlots = new List<GameObject> ();
 
-        inventoryWidth = (slotPaddingLeft + slotSize) * columns + slotPaddingLeft;
-		inventoryHeight = (rows) * (slotSize + slotPaddingTop) + slotPaddingTop;
+        inventoryWidth = ((columns) * (slotSize) + (columns - 1) * (slotPaddingBetween) + slotPaddingLeft) - 1;
+		inventoryHeight = (rows) * (slotPaddingTop + slotSize) + slotPaddingTop;
 		
 		inventoryRect = GetComponent<RectTransform> ();
 		
@@ -49,7 +49,7 @@ public class Inventory : MonoBehaviour {
 
 				newSlot.transform.SetParent(this.transform.parent);
 
-				slotRect.localPosition = inventoryRect.localPosition + new Vector3(slotPaddingLeft + (x + 1) + (slotSize * x), -slotPaddingTop * (y + 1) - (slotSize * y));
+				slotRect.localPosition = inventoryRect.localPosition + new Vector3(slotPaddingLeft + (x - 1) + (slotSize * x), -slotPaddingTop * (y + 1) - (slotSize * y));
 
 				slotRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, slotSize);
 				slotRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, slotSize);
