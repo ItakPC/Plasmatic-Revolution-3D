@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public enum ItemType { FISH };
+public enum ItemType { FISH, BANDAGE};
 
 public class Item : MonoBehaviour {
 
@@ -13,8 +13,14 @@ public class Item : MonoBehaviour {
 	public int maxStackSize;
 
 	public void Use() {
-		switch(type){
-
-		}
-	}
+        switch (type)
+        {
+            case ItemType.FISH:
+                Debug.Log("Fish used");
+                break;
+            case ItemType.BANDAGE:
+                Debug.Log("Bandage used");
+                break;
+        }
+    }
 }
