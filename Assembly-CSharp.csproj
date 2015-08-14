@@ -46,11 +46,11 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Inventory\Scripts\HandleCanvas.cs" />
      <Compile Include="Assets\Inventory\Scripts\Inventory.cs" />
      <Compile Include="Assets\Inventory\Scripts\Item.cs" />
      <Compile Include="Assets\Inventory\Scripts\Player.cs" />
      <Compile Include="Assets\Inventory\Scripts\Slot.cs" />
+     <Compile Include="Assets\PlayerScript.cs" />
      <Compile Include="Assets\Survival_Island_Assets\Survival_Island_Assets\Unity_4_Legacy_CharacterControllers\Sources\Scripts\MouseLook.cs" />
      <Compile Include="Assets\TerrainToolkit\TerrainToolkit.cs" />
      <None Include="Assets\Survival_Island_Assets\Survival_Island_Assets\READ ME.txt" />

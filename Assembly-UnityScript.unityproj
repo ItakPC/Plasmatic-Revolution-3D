@@ -50,7 +50,6 @@
      <Compile Include="Assets\Survival_Island_Assets\Survival_Island_Assets\Unity_4_Legacy_CharacterControllers\Sources\Scripts\FPSInputController.js" />
      <Compile Include="Assets\Survival_Island_Assets\Survival_Island_Assets\Unity_4_Legacy_CharacterControllers\Sources\Scripts\PlatformInputController.js" />
      <Compile Include="Assets\TerrainToolkit\TerrainToolkitEnums.js" />
-     <Compile Include="Assets\UI\PlayerGUI.js" />
      <None Include="Assets\Survival_Island_Assets\Survival_Island_Assets\READ ME.txt" />
      <None Include="Assets\Inventory\TODO and info.txt" />
      <None Include="Assets\Standard Assets\Environment\Water\Water4\Shaders\FXWater4Simple.shader" />

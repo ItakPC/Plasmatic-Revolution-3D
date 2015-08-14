@@ -39,8 +39,11 @@ public class Slot : MonoBehaviour, IPointerClickHandler {
         }
     }
 
-    void Start () {
+    void Awake() {
         Items = new Stack<Item>();
+    }
+    void Start () {
+     
         RectTransform slotRect = GetComponent<RectTransform>();
         RectTransform txtRect = stackTxt.GetComponent<RectTransform>();
 
@@ -50,6 +53,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler {
 
         txtRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, slotRect.sizeDelta.x);
         txtRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, slotRect.sizeDelta.y);
+        
     }
 	
 	void Update () {
@@ -105,7 +109,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler {
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (eventData.button == PointerEventData.InputButton.Right)
+        if (eventData.button == PointerEventData.InputButton.Right && !GameObject.Find("Hover"))
         {
             UseItem();
 
