@@ -23,18 +23,13 @@ public class Inventory : MonoBehaviour {
 
     private static GameObject playerRef;
 
-    private Slot from, to;
+    private static Slot from, to;
     private List<GameObject> allSlots;
     public Text tooltipSizeObject;
     public Text tooltipTextObject;
     private static Text tooltipSize;
     private static Text tooltipText;
     public EventSystem eventSystem;
-
-
-
-
-
 
     private float inventoryWidth, inventoryHeight;
 
@@ -106,7 +101,7 @@ public class Inventory : MonoBehaviour {
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Q) && !eventSystem.IsPointerOverGameObject(-1))
         {
             if (!eventSystem.IsPointerOverGameObject(-1) && from != null)
             {
@@ -116,19 +111,19 @@ public class Inventory : MonoBehaviour {
 
                     Vector3 v = new Vector3(Mathf.Sin(angle), 0, Mathf.Cos(angle));
 
-                    v *= 30;
+                    v *= 2;
 
-                    GameObject.Instantiate(droppedItem, playerRef.transform.position, Quaternion.identity);
-                    Debug.Log("dropped");
+                    GameObject.Instantiate(droppedItem, playerRef.transform.position - v, Quaternion.identity);
+
                 }
-
-                from.ClearSlot();
-                Destroy(GameObject.Find("Hover"));
-                to = null;
-                from = null;
-                emptySlots++;
-
             }
+
+            from.ClearSlot();
+            from.GetComponent<Image>().color = Color.white;
+            Destroy(GameObject.Find("Hover"));
+            to = null;
+            from = null;
+            emptySlots++;
         }
 
             if (hoverObject != null)
