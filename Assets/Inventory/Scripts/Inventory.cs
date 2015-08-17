@@ -113,7 +113,9 @@ public class Inventory : MonoBehaviour {
 
                     v *= 2;
 
-                    GameObject.Instantiate(droppedItem, playerRef.transform.position - v, Quaternion.identity);
+                    GameObject tmpDrop = (GameObject)GameObject.Instantiate(droppedItem, playerRef.transform.position - v, Quaternion.identity);
+
+                    tmpDrop.GetComponent<Item>().SetContent(item);
 
                 }
             }
@@ -126,29 +128,29 @@ public class Inventory : MonoBehaviour {
             emptySlots++;
         }
 
-            if (hoverObject != null)
-            {
-                Vector2 position;
-                RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.transform as RectTransform, Input.mousePosition, canvas.worldCamera, out position);
-                position.Set(position.x, position.y - hoverYOffset);
-                hoverObject.transform.position = canvas.transform.TransformPoint(position);
+        if (hoverObject != null)
+        {
+            Vector2 position;
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.transform as RectTransform, Input.mousePosition, canvas.worldCamera, out position);
+            position.Set(position.x, position.y - hoverYOffset);
+            hoverObject.transform.position = canvas.transform.TransformPoint(position);
 
+        }
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+
+            if (canvasGroup.alpha > 0)
+            {
+                StartCoroutine("FadeOut");
+                PutItemBack();
             }
-
-            if (Input.GetKeyDown(KeyCode.E))
+            else
             {
-
-                if (canvasGroup.alpha > 0)
-                {
-                    StartCoroutine("FadeOut");
-                    PutItemBack();
-                }
-                else
-                {
-                    StartCoroutine("FadeIn");
-                }
+                StartCoroutine("FadeIn");
             }
         }
+    }
     
 
     private void CreateLayOut() {

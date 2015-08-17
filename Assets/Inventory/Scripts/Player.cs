@@ -83,5 +83,15 @@ public class Player : MonoBehaviour {
 
         healthDisplay.fillAmount = Mathf.Lerp(healthDisplay.fillAmount, currentValue, Time.deltaTime * lerpSpeed);
     }
+
+    private void OnCollisionEnter(Collision collision) {
+        if (collision.gameObject.tag == "Item")
+        {
+            Debug.Log("collided");
+            inventory.AddItem(collision.gameObject.GetComponent<Item>());
+
+            Destroy(collision.gameObject);
+        }
+    }
 }
 

@@ -14,7 +14,7 @@ public class Item : MonoBehaviour {
 
 	public int maxStackSize;
 
-    public float derpage, awesomeness;
+    public float damage;
 
     public string itemName;
 
@@ -54,9 +54,33 @@ public class Item : MonoBehaviour {
 
         }
 
-        if (derpage > 0) { stats += "\n" + "Derpage: " + derpage.ToString(); }
-        if (awesomeness > 0) { stats += "\n" + "Awesomeness: " + awesomeness.ToString(); }
+        if (damage > 0) { stats += "\n" + "Damage: " + damage.ToString(); }
 
         return string.Format("<color=" + color + "><size=10>{0}</size></color><size=8><i>" + newLine + "{1}</i>{2}</size>", itemName, description, stats);
+    }
+
+
+    public void SetContent(Item item) {
+
+        #region Variables
+        this.type = item.type;
+        this.rarity = item.rarity;
+        this.spriteNeutral = item.spriteNeutral;
+        this.spriteHighlighted = item.spriteHighlighted;
+        this.maxStackSize = item.maxStackSize;
+        this.damage = item.damage;
+        this.itemName = item.itemName;
+        this.description = item.description;
+        #endregion
+
+        switch (type)
+        {
+            case ItemType.FISH:
+                GetComponent<Renderer>().material.color = Color.cyan;
+                break;
+            case ItemType.BANDAGE:
+                GetComponent<Renderer>().material.color = Color.red;
+                break;
+        }
     }
 }
