@@ -6,6 +6,7 @@ public class Player : MonoBehaviour {
 
     public Inventory inventory;
     public Canvas canvas;
+    public static DroppedItem dItem;
 
     public Text healthText;
     public Image healthDisplay;
@@ -63,7 +64,7 @@ public class Player : MonoBehaviour {
                 StartCoroutine(CoolDown());
                 CurrentHealth += 1;
             }
-        }      
+        }
     }
 
     IEnumerator CoolDown() {
@@ -84,13 +85,12 @@ public class Player : MonoBehaviour {
         healthDisplay.fillAmount = Mathf.Lerp(healthDisplay.fillAmount, currentValue, Time.deltaTime * lerpSpeed);
     }
 
-    private void OnCollisionEnter(Collision collision) {
-        if (collision.gameObject.tag == "Item")
+    public void OnCollisionEnter(Collision col)
+    {
+        if (col.gameObject.name == "DroppedItem" || col.gameObject.name == "DroppedItem(Clone)")
         {
-            Debug.Log("collided");
-            inventory.AddItem(collision.gameObject.GetComponent<Item>());
-
-            Destroy(collision.gameObject);
+            inventory.AddItem(col.gameObject.GetComponent<Item>());
+            Destroy(col.gameObject);
         }
     }
 }

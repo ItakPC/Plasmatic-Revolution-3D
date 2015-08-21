@@ -113,7 +113,7 @@ public class Inventory : MonoBehaviour {
 
                     v *= 2;
 
-                    GameObject tmpDrop = (GameObject)GameObject.Instantiate(droppedItem, playerRef.transform.position - v, Quaternion.identity);
+                    GameObject tmpDrop = (GameObject)Instantiate(droppedItem, playerRef.transform.position - v, Quaternion.identity);
 
                     tmpDrop.GetComponent<Item>().SetContent(item);
 
