@@ -62,7 +62,6 @@ public class Item : MonoBehaviour {
 
     public void SetContent(Item item) {
 
-        #region Variables
         this.type = item.type;
         this.rarity = item.rarity;
         this.spriteNeutral = item.spriteNeutral;
@@ -71,7 +70,6 @@ public class Item : MonoBehaviour {
         this.damage = item.damage;
         this.itemName = item.itemName;
         this.description = item.description;
-        #endregion
 
         switch (type)
         {

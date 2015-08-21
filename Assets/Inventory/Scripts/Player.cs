@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour {
 
     public Inventory inventory;
+    public Inventory Chest;
     public Canvas canvas;
     public static DroppedItem dItem;
 
@@ -38,6 +39,27 @@ public class Player : MonoBehaviour {
 	
 	void Update () {
         HandleHealth();
+        RaycastHit hit;
+
+        Ray ray = new Ray(transform.position, Vector3.forward);
+
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            inventory.Open();
+
+        }
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            if (Physics.Raycast(ray, out hit, 2))
+            {
+                if (hit.collider.name == "Chest")
+                {
+                    Chest.Open();
+                }     
+            }
+        }
 	}
 
     private void OnTriggerEnter(Collider other) {
